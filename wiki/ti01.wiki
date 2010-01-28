@@ -1,0 +1,16 @@
+#summary table-importer Sprint Log 01
+= Sprint Log =
+ * Sprint Goal:
+  * Have a initial design of importer
+
+== 2010-01-28 ==
+ * djemriza
+  * Prev:
+   * Nothing
+  * Done:
+   * Create basic project in NetBeans IDE
+   * Create projects SVN and Wiki on [code.google.com Google Code]
+  * Obstacles:
+   * no
+  * Plan:
+   * Start working on initial design
