@@ -3,6 +3,18 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-02 ==
+ * djemriza
+  * Prev:
+   * Start working on initial design
+  * Done:
+   * Working on initial design
+   * Post simple change in SVN
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+
 == 2010-01-28 ==
  * djemriza
   * Prev:
