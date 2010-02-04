@@ -14,7 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Test class of RowData class
  * @author djemriza
  */
 public class RowDataTest {
