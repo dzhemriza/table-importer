@@ -3,6 +3,19 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-04 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+  * Done:
+   * Initial design
+    * Implement class RowData which holds information about what should be posted into destination row
+    * Write unit test for RowData class
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+
 == 2010-02-02 ==
  * djemriza
   * Prev:
