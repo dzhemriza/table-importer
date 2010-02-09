@@ -3,6 +3,20 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-09 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+  * Done:
+   * Initial design
+    * Restructure the sources
+    * Create a interface for a field mapping
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+    * Create a design of source table and destination table
+
 == 2010-02-04 ==
  * djemriza
   * Prev:
