@@ -6,7 +6,6 @@
 package tableimporter.fieldmapping;
 
 import tableimporter.collections.RowData;
-import tableimporter.*;
 
 /**
  *
