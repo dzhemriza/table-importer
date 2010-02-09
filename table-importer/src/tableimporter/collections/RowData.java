@@ -3,7 +3,7 @@
  * @author djemriza
  */
 
-package tableimporter;
+package tableimporter.collections;
 
 import java.util.TreeMap;
 import java.util.Iterator;
