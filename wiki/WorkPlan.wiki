@@ -12,3 +12,5 @@ The page contains information about the project plan
  * Source Table
  * Destination Table
  * Importer Interface
+
+The project is using a scrum methodology with 2 hours work on a week!
