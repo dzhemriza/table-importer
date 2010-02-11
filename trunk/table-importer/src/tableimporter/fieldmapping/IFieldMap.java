@@ -17,5 +17,5 @@ public interface IFieldMap {
      * Method writes field mapping into destination row data
      * @param rowData
      */
-    public void write(RowData rowData);
+    public void write(RowData srcRowData, RowData destRowData);
 }

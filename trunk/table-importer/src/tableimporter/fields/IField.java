@@ -24,8 +24,9 @@ public interface IField {
     public FieldType getFieldType();
 
     /**
-     * Returns field data index
+     * Method is responsible to give information is this is unique field
+     * or not
      * @return
      */
-    public int getDataIndex();
+    public boolean isKeyField();
 }

@@ -44,7 +44,7 @@ public class FieldTest {
      */
     @Test
     public void testGetFieldName() {
-        Field instance = new Field("A", FieldType.String, 0);
+        Field instance = new Field("A", FieldType.String, false);
         assertEquals(instance.getFieldName(), "A");
     }
 
@@ -53,7 +53,7 @@ public class FieldTest {
      */
     @Test
     public void testGetFieldType() {
-        Field instance = new Field("A", FieldType.String, 0);
+        Field instance = new Field("A", FieldType.String, false);
         assertEquals(instance.getFieldType(), FieldType.String);
     }
 
@@ -62,8 +62,8 @@ public class FieldTest {
      */
     @Test
     public void testGetDataIndex() {
-        Field instance = new Field("A", FieldType.String, 1);
-        assertEquals(instance.getDataIndex(), 1);
+        Field instance = new Field("A", FieldType.String, true);
+        assertEquals(instance.isKeyField(), true);
     }
 
 }
