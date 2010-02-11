@@ -26,6 +26,12 @@ public class FieldToFieldMap {
         this.dstField = dstField;
     }
 
-    public void write(RowData rowData) {
+    public void write(RowData srcRowData, RowData destRowData) {
+        Object srcValue = null;
+        String srcFieldName = srcField.getFieldName();
+        srcValue = srcRowData.getFieldValue(srcFieldName);
+
+        String dstFieldName = dstField.getFieldName();
+        destRowData.setFieldValue(dstFieldName, srcValue);
     }
 }

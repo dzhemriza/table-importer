@@ -1,5 +1,5 @@
 /*
- * File Name: RowData.java
+ * File Name: NameValueMap.java
  * @author djemriza
  */
 
@@ -11,15 +11,14 @@ import java.util.Set;
 import tableimporter.utils.CaseInsensitiveStringComparator;
 
 /**
- * Class is responsible to hold row data that will be posted to destination
- * table
+ *
  * @author djemriza
  */
-public class RowData {
+public class NameValueMap {
 
     protected TreeMap<String, Object> mapDataHolder = new TreeMap<String, Object>(new CaseInsensitiveStringComparator());
 
-    public RowData() {
+    public NameValueMap() {
     }
 
     /**

@@ -12,7 +12,7 @@ package tableimporter.fields;
 public class Field implements IField {
     protected String strFieldName;
     protected FieldType fieldType;
-    protected int fieldDataIndex;
+    protected boolean keyField;
 
     /**
      * Constructor of a Field class
@@ -20,10 +20,10 @@ public class Field implements IField {
      * @param fieldType
      * @param fieldDataIndex
      */
-    public Field(String fieldName, FieldType fieldType, int fieldDataIndex) {
+    public Field(String fieldName, FieldType fieldType, boolean keyField) {
         this.strFieldName = fieldName;
         this.fieldType = fieldType;
-        this.fieldDataIndex = fieldDataIndex;
+        this.keyField = keyField;
     }
 
     /**
@@ -43,10 +43,11 @@ public class Field implements IField {
     }
 
     /**
-     * Returns field data index
+     * Method is responsible to give information is this is unique field
+     * or not
      * @return
      */
-    public int getDataIndex() {
-        return fieldDataIndex;
+    public boolean isKeyField() {
+        return keyField;
     }
 }
