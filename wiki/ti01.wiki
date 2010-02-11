@@ -3,6 +3,23 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-11 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Create a design of source table and destination table
+  * Done:
+   * Little refacturing on RowData class (will continue with refacturing)
+    * Add new class ObjectWithProperties
+    * Add new class NameValueMap
+   * Added interfaces without any declarations for IDestTable and ISourceTable
+   * Implement first field map mapping (FieldToFieldMap)
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+    * Continue working on refacturing on RowData class
+
 == 2010-02-09 ==
  * djemriza
   * Prev:
