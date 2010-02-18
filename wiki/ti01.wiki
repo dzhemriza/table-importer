@@ -3,6 +3,21 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-18 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Continue working on refacturing on RowData class
+  * Done:
+   * Finish the refacturing of RowData class
+   * Update the unit tests
+   * Change some class names
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+    * Continue with field maps or src/dst tables
+
 == 2010-02-11 ==
  * djemriza
   * Prev:
