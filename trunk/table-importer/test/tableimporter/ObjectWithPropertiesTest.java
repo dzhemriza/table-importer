@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tableimporter.collections.NameValueMap;
-import tableimporter.collections.ObjectWithProperties;
+import tableimporter.collections.ObjectWithAttributes;
 
 /**
  *
@@ -41,7 +41,7 @@ public class ObjectWithPropertiesTest {
 
     @Test
     public void testObjectWithProperties() {
-        ObjectWithProperties instance = new ObjectWithProperties();
+        ObjectWithAttributes instance = new ObjectWithAttributes();
         instance.setObjectValue(12); // int
         assertTrue((Integer) instance.getObjectValue() == 12);
     }

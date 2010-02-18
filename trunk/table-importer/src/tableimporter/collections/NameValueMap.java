@@ -57,4 +57,14 @@ public class NameValueMap {
         mapDataHolder.clear();
     }
 
+    /**
+     * Method checks is such field exist into collection
+     * @param strFieldName
+     * @return
+     */
+    public boolean isFieldExist(String strFieldName) {
+        Set<String> keySet = mapDataHolder.keySet();
+        return keySet.contains(strFieldName);
+    }
+
 }

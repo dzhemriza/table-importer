@@ -1,5 +1,5 @@
 /*
- * File Name: ObjectWithProperties.java
+ * File Name: ObjectWithAttributes.java
  * @author djemriza
  */
 
@@ -9,15 +9,15 @@ package tableimporter.collections;
  *
  * @author djemriza
  */
-public class ObjectWithProperties {
+public class ObjectWithAttributes {
 
     protected Object objValue = null;
     protected NameValueMap objProps = new NameValueMap();
 
-    public ObjectWithProperties() {
+    public ObjectWithAttributes() {
     }
 
-    public ObjectWithProperties(Object objValue) {
+    public ObjectWithAttributes(Object objValue) {
         this.objValue = objValue;
     }
 
@@ -41,7 +41,7 @@ public class ObjectWithProperties {
      * Returns name value map which contains a properties of a object
      * @return
      */
-    public NameValueMap getProperties() {
+    public NameValueMap getAttributes() {
         return objProps;
     }
 

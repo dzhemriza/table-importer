@@ -5,10 +5,7 @@
 
 package tableimporter.collections;
 
-import java.util.TreeMap;
 import java.util.Iterator;
-import java.util.Set;
-import tableimporter.utils.CaseInsensitiveStringComparator;
 
 /**
  * Class is responsible to hold row data that will be posted to destination
@@ -17,7 +14,7 @@ import tableimporter.utils.CaseInsensitiveStringComparator;
  */
 public class RowData {
 
-    protected TreeMap<String, Object> mapDataHolder = new TreeMap<String, Object>(new CaseInsensitiveStringComparator());
+    protected NameValueMap mapDataHolder = new NameValueMap();
 
     public RowData() {
     }
@@ -29,7 +26,16 @@ public class RowData {
      * @param objValue - field value
      */
     public void setFieldValue(String strFieldName, Object objValue) {
-        mapDataHolder.put(strFieldName, objValue);
+        if (mapDataHolder.isFieldExist(strFieldName)) {
+            Object obj1= mapDataHolder.getFieldValue(strFieldName);
+            assert(obj1 instanceof ObjectWithAttributes);
+            ObjectWithAttributes objWithProps = (ObjectWithAttributes) obj1;
+            objWithProps.setObjectValue(objValue);
+        }
+        else {
+            ObjectWithAttributes objWithProps = new ObjectWithAttributes(objValue);
+            mapDataHolder.setFieldValue(strFieldName, objWithProps);
+        }
     }
 
     /**
@@ -39,7 +45,32 @@ public class RowData {
      * @return - if finds returns non null object
      */
     public Object getFieldValue(String strFieldName) {
-        return mapDataHolder.get(strFieldName);
+        Object objResult = null;
+
+        if (mapDataHolder.isFieldExist(strFieldName)) {
+            Object obj1 = mapDataHolder.getFieldValue(strFieldName);
+            assert(obj1 instanceof ObjectWithAttributes);
+            ObjectWithAttributes objWithProps = (ObjectWithAttributes) obj1;
+            objResult = objWithProps.getObjectValue();
+        }
+
+        return objResult;
+    }
+
+    /**
+     * Method returns attributes for a given field
+     * @param strFieldName
+     * @return
+     */
+    public NameValueMap getFieldAttributes(String strFieldName) {
+        if (mapDataHolder.isFieldExist(strFieldName)) {
+            Object obj1 = mapDataHolder.getFieldValue(strFieldName);
+            assert(obj1 instanceof ObjectWithAttributes);
+            ObjectWithAttributes objWithProps = (ObjectWithAttributes) obj1;
+            return objWithProps.getAttributes();
+        }
+        
+        return new NameValueMap();
     }
 
     /**
@@ -47,15 +78,14 @@ public class RowData {
      * @return
      */
     public Iterator<String> getFields() {
-        Set<String> keySet = mapDataHolder.keySet();
-        return keySet.iterator();
+        return mapDataHolder.getFields();
     }
 
     /**
      * Method clears all row data
      */
     public void clearAll() {
-        mapDataHolder.clear();
+        mapDataHolder.clearAll();
     }
 
 }
