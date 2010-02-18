@@ -157,4 +157,21 @@ public class NameValueMapTest {
         }
     }
 
+    @Test
+    public void testIsFieldExist() {
+        NameValueMap instance = new NameValueMap();
+        instance.setFieldValue("fld1", "string value");
+        instance.setFieldValue("fld2", 2);
+        instance.setFieldValue("fld3", 2.4);
+        instance.setFieldValue("fld4", 2.4);
+
+        assertTrue(instance.isFieldExist("fld1"));
+        assertTrue(instance.isFieldExist("fld2"));
+        assertTrue(instance.isFieldExist("fld3"));
+        assertTrue(instance.isFieldExist("fld4"));
+
+        assertTrue(instance.isFieldExist("fLd1"));
+        assertFalse(instance.isFieldExist("AfLd1"));
+   }
+
 }

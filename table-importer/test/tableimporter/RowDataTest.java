@@ -6,6 +6,7 @@
 package tableimporter;
 
 import tableimporter.collections.RowData;
+import tableimporter.collections.NameValueMap;
 import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -156,4 +157,38 @@ public class RowDataTest {
             iterFields.next();
         }
     }
+
+    @Test
+    public void testGetFieldAttributes() {
+        RowData instance = new RowData();
+        instance.setFieldValue("fld1", "string value");
+        instance.setFieldValue("fld2", 2);
+        instance.setFieldValue("fld3", 2.4);
+        instance.setFieldValue("fld4", 2.4);
+
+        NameValueMap fld1Attrs = instance.getFieldAttributes("fld1");
+        Iterator<String> fld1AttrsFields = fld1Attrs.getFields();
+        if (fld1AttrsFields.hasNext())
+            fail("There should no be a next object");
+        fld1Attrs.setFieldValue("Atr1", "some string");
+        assertEquals((String) fld1Attrs.getFieldValue("Atr1"), "some string");
+
+        fld1Attrs = instance.getFieldAttributes("fld1");
+        fld1AttrsFields = fld1Attrs.getFields();
+        if (fld1AttrsFields.hasNext())
+            assertTrue(true);
+        else
+            fail("Should have a fields");
+
+        instance.setFieldValue("fld1", "string value 2");
+        assertEquals((String) instance.getFieldValue("fld1"), "string value 2");
+        
+        fld1Attrs = instance.getFieldAttributes("fld1");
+        assertEquals((String) fld1Attrs.getFieldValue("Atr1"), "some string");
+        fld1AttrsFields = fld1Attrs.getFields();
+        if (fld1AttrsFields.hasNext())
+            assertTrue(true);
+        else
+            fail("Should have a fields");
+   }
 }
