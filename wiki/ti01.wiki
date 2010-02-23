@@ -3,6 +3,19 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-02-23 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Continue with field maps or src/dst tables
+  * Done:
+   * Make a research about how dynamically can load database connector without adding it into classpath
+  * Obstacles:
+   * no
+  * Plan:
+   * Continue working on initial design
+    * Continue with field maps or src/dst tables
+
 == 2010-02-18 ==
  * djemriza
   * Prev:
