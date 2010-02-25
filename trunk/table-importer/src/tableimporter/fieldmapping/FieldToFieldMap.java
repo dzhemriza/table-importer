@@ -12,7 +12,7 @@ import tableimporter.collections.RowData;
  *
  * @author djemriza
  */
-public class FieldToFieldMap {
+public class FieldToFieldMap implements IFieldMap {
     protected IField srcField = null;
     protected IField dstField = null;
 
