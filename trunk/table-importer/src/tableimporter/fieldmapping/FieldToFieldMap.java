@@ -33,5 +33,7 @@ public class FieldToFieldMap implements IFieldMap {
 
         String dstFieldName = dstField.getFieldName();
         destRowData.setFieldValue(dstFieldName, srcValue);
+
+        // todo djemriza: apply additional data
     }
 }
