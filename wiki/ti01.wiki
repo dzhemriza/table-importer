@@ -3,6 +3,20 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-03-09 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Continue with field maps or src/dst tables
+  * Done:
+   * Cosmetic changes into RowImporter class
+   * Create unit test for RowImporter logic, add in memory source and destination tables
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Continue with src/dst tables
+
 == 2010-03-05 ==
  * djemriza
   * Prev:
