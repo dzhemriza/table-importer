@@ -12,6 +12,8 @@ The page contains information about the project plan
  * Source Table
  * Destination Table
  * Importer Interface
+ * XML configuration
+ * Dynamically loading of db drivers
 
 The project is using a scrum methodology with 2 hours work on a week!
 
