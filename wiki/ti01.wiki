@@ -14,7 +14,7 @@
    * No
   * Plan:
    * Continue working on initial design
-    * Continue with src/dst tables (I need to create tasks in issue tracking system)
+    * Issue 2: Create DBSourceTable class
 
 == 2010-03-10 ==
  * djemriza
