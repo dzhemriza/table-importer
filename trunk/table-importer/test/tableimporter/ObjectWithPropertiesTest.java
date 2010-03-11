@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * File Name: ObjectWithPropertiesTest.java
+ * @author djemriza
  */
 
 package tableimporter;
@@ -11,12 +11,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tableimporter.collections.NameValueMap;
 import tableimporter.collections.ObjectWithAttributes;
 
 /**
  *
- * @author Administrator
+ * @author djemriza
  */
 public class ObjectWithPropertiesTest {
 
