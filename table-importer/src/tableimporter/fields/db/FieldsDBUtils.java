@@ -1,8 +1,7 @@
 /*
  * table-importer
  * Imports tabled data from any source to any destination
- * 
- * File Name: CaseInsensitiveStringComparator.java
+ * FileName: FieldsDBUtils.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -20,24 +19,31 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tableimporter.utils;
+package tableimporter.fields.db;
 
-import java.util.Comparator;
+import java.sql.Types;
+import tableimporter.fields.FieldType;
 
 /**
- * Comparator which compares case insensitive strings
+ *
  * @author djemriza
  */
-public class CaseInsensitiveStringComparator implements Comparator<String> {
+public class FieldsDBUtils {
 
-    /**
-     * Compare method
-     * @param lhs
-     * @param rhs
-     * @return
-     */
-    public int compare(String lhs, String rhs) {
-        return lhs.compareToIgnoreCase(rhs);
+    public static FieldType dbFieldToMyField(int dbFieldType) {
+        FieldType result = FieldType.Other;
+
+        switch (dbFieldType) {
+            case Types.VARCHAR: result = FieldType.String; break;
+            case Types.INTEGER: result = FieldType.Integer; break;
+            case Types.FLOAT: result = FieldType.Float; break;
+            case Types.DOUBLE: result = FieldType.Double; break;
+            case Types.DATE: result = FieldType.Date; break;
+            case Types.TIME: result = FieldType.Time; break;
+            case Types.TIMESTAMP: result = FieldType.DateTime; break;
+        }
+
+        return result;
     }
 
 }

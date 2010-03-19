@@ -1,8 +1,7 @@
 /*
  * table-importer
  * Imports tabled data from any source to any destination
- * 
- * File Name: ObjectWithAttributes.java
+ * FileName: DBResultSetSourceTable.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -20,46 +19,40 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tableimporter.collections;
+package tableimporter.source_table;
+
+import java.util.Vector;
+import java.util.Iterator;
+import java.sql.ResultSet;
+import tableimporter.collections.RowData;
+import tableimporter.fields.IField;
 
 /**
  *
  * @author djemriza
  */
-public class ObjectWithAttributes {
-
-    protected Object objValue = null;
-    protected NameValueMap objProps = new NameValueMap();
-
-    public ObjectWithAttributes() {
-    }
-
-    public ObjectWithAttributes(Object objValue) {
-        this.objValue = objValue;
-    }
+public class DBResultSetSourceTable implements ISourceTable {
+    protected ResultSet resultSet = null;
+    protected Vector<IField> fields = null;
 
     /**
-     * Returns internal objects value
-     * @return
+     * Constructor of class DBResultSetSourceTable
+     * @param resultSet
+     * @param fields
      */
-    public Object getObjectValue() {
-        return this.objValue;
+    public DBResultSetSourceTable(ResultSet resultSet, Vector<IField> fields) {
+        this.resultSet = resultSet;
+        this.fields = fields;
     }
 
-    /**
-     * Sets internal object value
-     * @param objValue
-     */
-    public void setObjectValue(Object objValue) {
-        this.objValue = objValue;
+    public Iterator<RowData> getRecords() {
+        ResultSetToRowDataIterator iter = new ResultSetToRowDataIterator(resultSet);
+
+        return iter;
     }
 
-    /**
-     * Returns name value map which contains a properties of a object
-     * @return
-     */
-    public NameValueMap getAttributes() {
-        return objProps;
+    public Vector<IField> getFields() {
+        return fields;
     }
 
 }
