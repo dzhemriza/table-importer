@@ -3,6 +3,21 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-03-21 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Issue 3: Create DBDestTable class
+  * Done:
+   * Continue working on initial design
+    * Work on Issue 3: Create DBDestTable class
+     * Create common sql statement builder class which builds parametric insert and update  statements
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 3: Create DBDestTable class
+
 == 2010-03-19 ==
  * djemriza
   * Prev:
