@@ -3,6 +3,20 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-05-04 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Issue 3: Create DBDestTable class
+  * Done:
+   * Continue working on initial design
+    * Finish Issue 3: Create DBDestTable class
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Start Working on Issue 4: Create unit tests for DBSourceTable class
+
 == 2010-05-03 ==
  * djemriza
   * Prev:
