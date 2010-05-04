@@ -42,7 +42,7 @@ class ResultSetToRowDataIterator implements Iterator<RowData> {
         try {
             return !resultSet.isLast();
         } catch (SQLException ex) {
-            // todo: log the exception
+            // TODO: log the exception
             return false;
         }
     }
@@ -55,7 +55,7 @@ class ResultSetToRowDataIterator implements Iterator<RowData> {
             getCurrentRowData(rowData);
         }
         catch (SQLException ex) {
-            // todo: log the exception
+            // TODO: log the exception
             return null;
         }
 
