@@ -38,7 +38,6 @@ import tableimporter.dest_table.utils.ParametersPopulationOrder;
  * @author djemriza
  */
 public class DBTableInserter extends DBTableOperationBase {
-    // TODO: create unit tests for this class
 
     public DBTableInserter(Connection dbConn, ISQLStatementBuilder sqlStatementBuilder, String tableName) {
         super(dbConn, sqlStatementBuilder, tableName);

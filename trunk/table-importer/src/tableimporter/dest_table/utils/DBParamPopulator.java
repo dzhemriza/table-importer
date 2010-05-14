@@ -33,7 +33,6 @@ import tableimporter.fields.IField;
  * @author djemriza
  */
 public class DBParamPopulator {
-    // TODO: create unit test for this class
 
     public static void populateParameters(Vector<IField> fields, PreparedStatement ps, RowData rd, ParametersPopulationOrder populationOrder) throws SQLException {
         if (ParametersPopulationOrder.FieldsOrder == populationOrder) {
@@ -64,7 +63,7 @@ public class DBParamPopulator {
                 if (!field.isKeyField()) {
                     String strField = field.getFieldName();
                     Object fieldValue = rd.getFieldValue(strField);
-                    ps.setObject(i + 1, fieldValue);
+                    ps.setObject(position, fieldValue);
                     ++position;
                 }
             }
