@@ -38,7 +38,6 @@ import tableimporter.dest_table.utils.ParametersPopulationOrder;
  * @author djemriza
  */
 public class DBTableDeleter extends DBTableOperationBase {
-    // TODO: create unit tests for this class
 
     public DBTableDeleter(Connection dbConn, ISQLStatementBuilder sqlStatementBuilder, String tableName) {
         super(dbConn, sqlStatementBuilder, tableName);
