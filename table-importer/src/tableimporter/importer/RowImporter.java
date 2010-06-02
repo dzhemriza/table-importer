@@ -28,6 +28,7 @@ import tableimporter.dest_table.IDestTable;
 import tableimporter.source_table.ISourceTable;
 import tableimporter.fieldmapping.IFieldMap;
 import tableimporter.collections.RowData;
+import tableimporter.fieldmapping.UnableToWriteFieldMapData;
 
 /**
  *
@@ -69,7 +70,11 @@ public class RowImporter implements IRowImporter {
             for (int i = 0; i < fieldMapping.size(); ++i) {
                 IFieldMap fieldMap = fieldMapping.get(i);
 
-                fieldMap.write(rowData, destRowData);
+                try {
+                    fieldMap.write(rowData, destRowData);
+                } catch (UnableToWriteFieldMapData unableToWriteFieldMapData) {
+                    // TODO: Log the exception here
+                }
             }
 
             dstTable.postRecord(destRowData);

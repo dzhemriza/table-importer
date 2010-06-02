@@ -43,7 +43,7 @@ public class FieldToFieldMap implements IFieldMap {
         this.dstField = dstField;
     }
 
-    public void write(RowData srcRowData, RowData destRowData) {
+    public void write(RowData srcRowData, RowData destRowData) throws UnableToWriteFieldMapData {
         Object srcValue = null;
         String srcFieldName = srcField.getFieldName();
         srcValue = srcRowData.getFieldValue(srcFieldName);
