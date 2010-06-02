@@ -1,8 +1,8 @@
 /*
  * table-importer
  * Imports tabled data from any source to any destination
- * 
- * File Name: IFieldMap.java
+ *
+ * File Name: UnableToWriteFieldMapData.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -22,17 +22,14 @@
 
 package tableimporter.fieldmapping;
 
-import tableimporter.collections.RowData;
-
 /**
  *
  * @author djemriza
  */
-public interface IFieldMap {
+public class UnableToWriteFieldMapData extends Exception {
 
-    /**
-     * Method writes field mapping into destination row data
-     * @param rowData
-     */
-    public void write(RowData srcRowData, RowData destRowData) throws UnableToWriteFieldMapData;
+    public UnableToWriteFieldMapData(String why) {
+        super(why);
+    }
+
 }
