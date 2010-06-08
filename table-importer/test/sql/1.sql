@@ -1,3 +1,5 @@
+-- SQL Script for MySQL
+
 CREATE  TABLE IF NOT EXISTS `test`.`persons` (
   `persons_id` INT NOT NULL AUTO_INCREMENT ,
   `persons_name` VARCHAR(255) NULL ,
