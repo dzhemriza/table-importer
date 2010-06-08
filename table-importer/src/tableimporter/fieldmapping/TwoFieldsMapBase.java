@@ -1,8 +1,8 @@
 /*
  * table-importer
  * Imports tabled data from any source to any destination
- * 
- * File Name: FieldToFieldMap.java
+ *
+ * File Name: TwoFieldsMapBase.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -23,29 +23,17 @@
 package tableimporter.fieldmapping;
 
 import tableimporter.fields.IField;
-import tableimporter.collections.RowData;
 
 /**
  *
  * @author djemriza
  */
-public class FieldToFieldMap extends TwoFieldsMapBase {
+public abstract class TwoFieldsMapBase implements IFieldMap {
+    protected IField srcField = null;
+    protected IField dstField = null;
 
-    /**
-     * Constructor of a class FieldToFieldMap
-     * @param srcField
-     * @param dstField
-     */
-    public FieldToFieldMap(IField srcField, IField dstField) {
-        super(srcField, dstField);
-    }
-
-    public void write(RowData srcRowData, RowData destRowData) throws UnableToWriteFieldMapData {
-        Object srcValue = null;
-        String srcFieldName = srcField.getFieldName();
-        srcValue = srcRowData.getFieldValue(srcFieldName);
-
-        String dstFieldName = dstField.getFieldName();
-        destRowData.setFieldValue(dstFieldName, srcValue);
+    public TwoFieldsMapBase(IField srcField, IField dstField) {
+        this.srcField = srcField;
+        this.dstField = dstField;
     }
 }
