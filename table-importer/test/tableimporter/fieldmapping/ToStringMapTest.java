@@ -31,7 +31,6 @@ import static org.junit.Assert.*;
 import tableimporter.collections.RowData;
 import tableimporter.fields.Field;
 import tableimporter.fields.FieldType;
-import tableimporter.fields.IField;
 
 /**
  *
