@@ -3,6 +3,23 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-06-10 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Start Issue 6: Create field mappings
+  * Done:
+   * Continue working on initial design
+    * Start working on Issue 6: Create field mappings
+     * Finish ToStringMap
+     * Finish StringToIntMap
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 6: Create field mappings
+     * Start implementing next mapping class
+
 == 2010-06-02 ==
  * djemriza
   * Prev:
