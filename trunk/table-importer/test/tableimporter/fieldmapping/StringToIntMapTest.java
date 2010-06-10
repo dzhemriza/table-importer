@@ -85,6 +85,7 @@ public class StringToIntMapTest {
             fail("you should never enter here");
         }
         catch (UnableToWriteFieldMapData ex) {
+            System.out.println("Intendet exception : " + ex.getMessage());
             assertTrue(true);
         }
     }
@@ -102,6 +103,7 @@ public class StringToIntMapTest {
             fail("you should never enter here");
         }
         catch (UnableToWriteFieldMapData ex) {
+            System.out.println("Intendet exception : " + ex.getMessage());
             assertTrue(true);
         }
     }
@@ -118,6 +120,7 @@ public class StringToIntMapTest {
             fail("you should never enter here");
         }
         catch (UnableToWriteFieldMapData ex) {
+            System.out.println("Intendet exception : " + ex.getMessage());
             assertTrue(true);
         }
     }

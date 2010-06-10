@@ -24,44 +24,20 @@ package tableimporter.fieldmapping;
 
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
-import tableimporter.collections.RowData;
 
 /**
  *
  * @author djemriza
  */
-public class StringToIntMap extends TwoFieldsMapBase {
+public class StringToIntMap extends StringToTypeBase {
 
     public StringToIntMap(IField srcField, IField dstField) {
-        super(srcField, dstField);
+        super(srcField, dstField, FieldType.Integer);
     }
 
-    public void write(RowData srcRowData, RowData destRowData) throws UnableToWriteFieldMapData {
-        if (FieldType.String != srcField.getFieldType())
-            throw new UnableToWriteFieldMapData("Source field is not of type String");
-        
-        if (FieldType.Integer != dstField.getFieldType())
-            throw new UnableToWriteFieldMapData("Destination field is not of type Integer");
-
-        String strSrcField = srcField.getFieldName();
-
-        Object srcObj = srcRowData.getFieldValue(strSrcField);
-        if (null == srcObj)
-            throw new UnableToWriteFieldMapData("Source field contains null data");
-
-        String srcFieldValue = (String) srcObj;
-
-        int intVal = 0;
-        
-        try {
-            intVal = Integer.parseInt(srcFieldValue);
-        }
-        catch (NumberFormatException numFormatEx) {
-            // TODO: Log the exception here
-            throw new UnableToWriteFieldMapData(numFormatEx.getMessage());
-        }
-        
-        String strDstField = dstField.getFieldName();
-        destRowData.setFieldValue(strDstField, intVal);
+    protected Object parseTypeFromString(String srcFieldValue) throws Exception {
+        int intVal = Integer.parseInt(srcFieldValue);
+        return intVal;
     }
+
 }
