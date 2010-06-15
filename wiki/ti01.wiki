@@ -3,6 +3,24 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-06-15 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Start Issue 6: Create field mappings
+  * Done:
+   * Continue working on initial design
+    * Finish Issue 10:	Create base class for all String To Something field mappings
+    * Work on Issue 6: Create field mappings
+     * Refactor StringToDateMap to StringToDateTimeMap and add functionality to parse not only dates but also date time and time values according to some pattern
+     * Added new exception ExpectDateTimeType 
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 6: Create field mappings
+     * Start implementing next mapping class
+
 == 2010-06-11 ==
  * djemriza
   * Prev:
