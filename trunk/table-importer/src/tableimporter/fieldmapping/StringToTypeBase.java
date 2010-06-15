@@ -57,6 +57,7 @@ public abstract class StringToTypeBase extends TwoFieldsMapBase {
         
         try {
             parsedValue = parseTypeFromString(srcFieldValue);
+            parsedValue = convertToNeededType(parsedValue);
         }
         catch (Exception parseEx) {
             // TODO: Log the exception here
@@ -70,5 +71,10 @@ public abstract class StringToTypeBase extends TwoFieldsMapBase {
     }
 
     protected abstract Object parseTypeFromString(String srcFieldValue) throws Exception;
+
+    protected Object convertToNeededType(Object parsedValue) {
+        // Basicly this method do nothing
+        return parsedValue;
+    }
 
 }

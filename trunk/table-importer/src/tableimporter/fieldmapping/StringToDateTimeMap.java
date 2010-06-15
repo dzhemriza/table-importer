@@ -2,7 +2,7 @@
  * table-importer
  * Imports tabled data from any source to any destination
  *
- * File Name: StringToDateMap.java
+ * File Name: StringToDateTimeMap.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -31,18 +31,26 @@ import tableimporter.fields.FieldType;
  *
  * @author djemriza
  */
-public class StringToDateMap extends StringToTypeBase {
+public class StringToDateTimeMap extends StringToTypeBase {
     protected String strDateFormat = "";
 
-    public StringToDateMap(IField srcField, IField dstField, String strDateFormat) {
-        super(srcField, dstField, FieldType.Date);
+    public StringToDateTimeMap(IField srcField, IField dstField, String strDateFormat, FieldType dateType) throws ExpectDateTimeType {
+        super(srcField, dstField, dateType);
         this.strDateFormat = strDateFormat;
         assert(0 < this.strDateFormat.length());
+
+        if ((FieldType.Date != dateType) && (FieldType.Time != dateType) && (FieldType.DateTime != dateType))
+            throw new ExpectDateTimeType(dateType, "Expect date time type");
     }
 
     protected Object parseTypeFromString(String srcFieldValue) throws Exception {
         DateFormat dateFormatter = new SimpleDateFormat(strDateFormat);
         return dateFormatter.parse(srcFieldValue);
     }
+
+    // This code is feezed for the moment maybe in feature will be changed
+//    @Override
+//    protected Object convertToNeededType(Object parsedValue) {
+//    }
 
 }

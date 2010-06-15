@@ -2,7 +2,7 @@
  * table-importer
  * Imports tabled data from any source to any destination
  *
- * File Name: StringToDateMapTest.java
+ * File Name: StringToDateTimeMapTest.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -30,14 +30,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import tableimporter.fields.FieldType;
 
 /**
  *
  * @author djemriza
  */
-public class StringToDateMapTest {
+public class StringToDateTimeMapTest {
 
-    public StringToDateMapTest() {
+    public StringToDateTimeMapTest() {
     }
 
     @BeforeClass
@@ -57,30 +58,72 @@ public class StringToDateMapTest {
     }
 
     /**
-     * Test of parseTypeFromString method, of class StringToDateMap.
+     * Test of parseTypeFromString method, of class StringToDateTimeMap.
      */
     @Test
-    public void testParseTypeFromStringGeneralCase() throws Exception {
+    public void testParseTypeFromStringGeneralCaseDate() throws Exception {
         String srcFieldValue = "02-01-2001";
-        StringToDateMap instance = new StringToDateMap(null, null, "dd-mm-yyyy");
+        StringToDateTimeMap instance = new StringToDateTimeMap(null, null, "dd-mm-yyyy", FieldType.Date);
 
         DateFormat dateFormatter = new SimpleDateFormat("dd-mm-yyyy");
         Object expResult = dateFormatter.parse(srcFieldValue);
 
         Object result = instance.parseTypeFromString(srcFieldValue);
         assertEquals(expResult, result);
+
+        System.out.println(result.toString());
+    }
+
+    @Test
+    public void testParseTypeFromStringGeneralCaseTime() throws Exception {
+        String srcFieldValue = "22:15:21";
+        StringToDateTimeMap instance = new StringToDateTimeMap(null, null, "HH:mm:ss", FieldType.Time);
+
+        DateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss");
+        Object expResult = dateFormatter.parse(srcFieldValue);
+
+        Object result = instance.parseTypeFromString(srcFieldValue);
+        assertEquals(expResult, result);
+
+        System.out.println(result.toString());
+    }
+
+    @Test
+    public void testParseTypeFromStringGeneralCaseDateTime() throws Exception {
+        String srcFieldValue = "02-01-2001 22:15:21";
+        StringToDateTimeMap instance = new StringToDateTimeMap(null, null, "dd-mm-yyyy HH:mm:ss", FieldType.DateTime);
+
+        DateFormat dateFormatter = new SimpleDateFormat("dd-mm-yyyy HH:mm:ss");
+        Object expResult = dateFormatter.parse(srcFieldValue);
+
+        Object result = instance.parseTypeFromString(srcFieldValue);
+        assertEquals(expResult, result);
+
+        System.out.println(result.toString());
     }
 
     @Test
     public void testParseTypeFromStringWithException() throws Exception {
         String srcFieldValue = "02:0s1-2d001";
-        StringToDateMap instance = new StringToDateMap(null, null, "dd-mm-yyyy");
+        StringToDateTimeMap instance = new StringToDateTimeMap(null, null, "dd-mm-yyyy", FieldType.Date);
 
         try {
             instance.parseTypeFromString(srcFieldValue);
             fail("you should never enter here!");
         }
         catch (Exception ex) {
+            System.out.println("Exception : " + ex.getMessage());
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testUnknownType() throws Exception {
+        try {
+            new StringToDateTimeMap(null, null, "dd-mm-yyyy", FieldType.Integer);
+            fail("you should never enter here!");
+        }
+        catch (ExpectDateTimeType ex) {
             System.out.println("Exception : " + ex.getMessage());
             assertTrue(true);
         }
