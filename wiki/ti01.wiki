@@ -3,6 +3,23 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-06-24 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Start Issue 6: Create field mappings
+  * Done:
+   * Continue working on initial design
+    * Finish Issue 10:	Create base class for all String To Something field mappings
+    * Work on Issue 6: Create field mappings
+     * Finish implementation of MathPlusMap need to write unit tests
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 6: Create field mappings
+     * Start implementing unit tests for MathPlusMap class
+
 == 2010-06-22 ==
  * djemriza
   * Prev:
