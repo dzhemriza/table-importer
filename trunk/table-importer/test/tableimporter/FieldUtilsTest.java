@@ -100,4 +100,17 @@ public class FieldUtilsTest {
             assertEquals(expResult[i], result[i]);
         }
     }
+
+    @Test
+    public void testNumericType() {
+        assertFalse(FieldUtils.isNumericType(FieldType.Date));
+        assertFalse(FieldUtils.isNumericType(FieldType.String));
+        assertTrue(FieldUtils.isNumericType(FieldType.Integer));
+        assertTrue(FieldUtils.isNumericType(FieldType.Float));
+        assertTrue(FieldUtils.isNumericType(FieldType.Double));
+        assertFalse(FieldUtils.isNumericType(FieldType.Time));
+        assertFalse(FieldUtils.isNumericType(FieldType.DateTime));
+        assertFalse(FieldUtils.isNumericType(FieldType.Other));
+    }
+    
 }

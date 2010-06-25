@@ -74,4 +74,10 @@ public class FieldUtils {
         return result;
     }
 
+    public static boolean isNumericType(FieldType ft) {
+        return (FieldType.Integer == ft) ||
+               (FieldType.Float == ft) ||
+               (FieldType.Double == ft);
+    }
+
 }
