@@ -2,7 +2,7 @@
  * table-importer
  * Imports tabled data from any source to any destination
  *
- * File Name: MathPlusMap.java
+ * File Name: MathDivMap.java
  *
  * Copyright (C) 2010 Dzhem Riza
  *
@@ -28,21 +28,30 @@ import tableimporter.fields.IField;
  *
  * @author djemriza
  */
-public class MathPlusMap extends MathBaseMap {
+public class MathDivMap extends MathBaseMap {
 
-    public MathPlusMap(IField srcField, IField dstField) {
+    public MathDivMap(IField srcField, IField dstField) {
         super(srcField, dstField);
     }
 
     protected int operateInt(int src, int dst) throws Exception {
-        return src + dst;
+        if (0 == dst)
+            throw new Exception("/ by zero");
+
+        return src / dst;
     }
 
     protected float operateFloat(float src, float dst) throws Exception {
-        return src + dst;
+        if (0.0F == dst)
+            throw new Exception("/ by zero");
+
+        return src / dst;
     }
 
     protected double operateDouble(double src, double dst) throws Exception {
-        return src + dst;
+        if (0.0 == dst)
+            throw new Exception("/ by zero");
+        
+        return src / dst;
     }
 }

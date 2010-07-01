@@ -73,26 +73,34 @@ public abstract class MathBaseMap extends TwoFieldsMapBase {
         assert(dstVal instanceof Number);
         Number dstNum = (Number) dstVal;
 
-        if (FieldType.Integer == dstField.getFieldType()) {
-            int val = operateInt(srcNum.intValue(), dstNum.intValue());
-            destRowData.setFieldValue(dstField.getFieldName(), val);
-        }
-        else if (FieldType.Float == dstField.getFieldType()) {
-            float val = operateFloat(srcNum.floatValue(), dstNum.floatValue());
-            destRowData.setFieldValue(dstField.getFieldName(), val);
-        }
-        else if (FieldType.Double == dstField.getFieldType()) {
-            double val = operateDouble(srcNum.doubleValue(), dstNum.doubleValue());
-            destRowData.setFieldValue(dstField.getFieldName(), val);
-        }
-        else
+        if (FieldType.Integer != dstField.getFieldType() &&
+            FieldType.Float == dstField.getFieldType() &&
+            FieldType.Double == dstField.getFieldType())
             throw new UnableToWriteFieldMapData("Unknown field type");
+
+        try {
+            if (FieldType.Integer == dstField.getFieldType()) {
+                int val = operateInt(srcNum.intValue(), dstNum.intValue());
+                destRowData.setFieldValue(dstField.getFieldName(), val);
+            }
+            else if (FieldType.Float == dstField.getFieldType()) {
+                float val = operateFloat(srcNum.floatValue(), dstNum.floatValue());
+                destRowData.setFieldValue(dstField.getFieldName(), val);
+            }
+            else if (FieldType.Double == dstField.getFieldType()) {
+                double val = operateDouble(srcNum.doubleValue(), dstNum.doubleValue());
+                destRowData.setFieldValue(dstField.getFieldName(), val);
+            }
+        } catch (Exception ex) {
+            // TODO: log the exception
+            throw new UnableToWriteFieldMapData("Inner exception: " + ex.getMessage());
+        }
     }
 
-    protected abstract int operateInt(int src, int dst);
+    protected abstract int operateInt(int src, int dst) throws Exception;
 
-    protected abstract float operateFloat(float src, float dst);
+    protected abstract float operateFloat(float src, float dst) throws Exception;
 
-    protected abstract double operateDouble(double src, double dst);
+    protected abstract double operateDouble(double src, double dst) throws Exception;
 
 }
