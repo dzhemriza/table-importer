@@ -3,6 +3,22 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-07-01 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Start Issue 6: Create field mappings
+  * Done:
+   * Continue working on initial design
+    * Work on Issue 6: Create field mappings
+     * Finish implementation of Math operations field maps (Minus, Mult, Div)
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 6: Create field mappings
+     * Start next field map
+
 == 2010-06-25 ==
  * djemriza
   * Prev:
