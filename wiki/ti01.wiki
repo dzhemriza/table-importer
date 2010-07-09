@@ -7,6 +7,21 @@
  * djemriza
   * Prev:
    * Continue working on initial design
+    * Issue 8: Add using of some kind of logger which logs exceptions and warnings
+  * Done:
+   * Continue working on initial design
+    * Work on Issue 8: Add using of some kind of logger which logs exceptions and warnings
+     * Finish the research about using a logger for java (the decision is log4j)
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 8: Add using of some kind of logger which logs exceptions and warnings
+
+== 2010-07-08 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
     * Start Issue 6: Create field mappings
   * Done:
    * Continue working on initial design
