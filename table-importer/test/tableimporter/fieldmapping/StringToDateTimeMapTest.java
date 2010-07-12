@@ -31,6 +31,7 @@ import static org.junit.Assert.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import tableimporter.fields.FieldType;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -51,6 +52,7 @@ public class StringToDateTimeMapTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

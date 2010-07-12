@@ -29,6 +29,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tableimporter.collections.ObjectWithAttributes;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -49,6 +50,7 @@ public class ObjectWithPropertiesTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

@@ -26,6 +26,7 @@ import tableimporter.fields.IField;
 import tableimporter.fields.FieldUtils;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -92,7 +93,11 @@ public abstract class MathBaseMap extends TwoFieldsMapBase {
                 destRowData.setFieldValue(dstField.getFieldName(), val);
             }
         } catch (Exception ex) {
-            // TODO: log the exception
+            Logger logger = Logger.getLogger("tableimporter.fieldmapping");
+
+            logger.error(ex.getMessage());
+            logger.debug("Full stack trace of exception:", ex);
+
             throw new UnableToWriteFieldMapData("Inner exception: " + ex.getMessage());
         }
     }

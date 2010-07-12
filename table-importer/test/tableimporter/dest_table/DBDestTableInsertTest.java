@@ -37,6 +37,7 @@ import static org.junit.Assert.*;
 import tableimporter.collections.RowData;
 import tableimporter.utils.db.*;
 import tableimporter.fields.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -57,6 +58,7 @@ public class DBDestTableInsertTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

@@ -31,6 +31,7 @@ import static org.junit.Assert.*;
 import tableimporter.collections.RowData;
 import tableimporter.fields.FieldType;
 import tableimporter.fields.Field;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -51,6 +52,7 @@ public class MathPlusMapTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

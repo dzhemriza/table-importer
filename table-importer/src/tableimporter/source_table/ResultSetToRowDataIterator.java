@@ -26,6 +26,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import tableimporter.collections.RowData;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -42,7 +43,11 @@ class ResultSetToRowDataIterator implements Iterator<RowData> {
         try {
             return !resultSet.isLast();
         } catch (SQLException ex) {
-            // TODO: log the exception
+            Logger logger = Logger.getLogger("tableimporter.source_table");
+
+            logger.error(ex.getMessage());
+            logger.debug("Full stack trace of exception:", ex);
+
             return false;
         }
     }
@@ -55,7 +60,11 @@ class ResultSetToRowDataIterator implements Iterator<RowData> {
             getCurrentRowData(rowData);
         }
         catch (SQLException ex) {
-            // TODO: log the exception
+            Logger logger = Logger.getLogger("tableimporter.source_table");
+
+            logger.error(ex.getMessage());
+            logger.debug("Full stack trace of exception:", ex);
+            
             return null;
         }
 

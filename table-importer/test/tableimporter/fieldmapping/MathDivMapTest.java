@@ -28,6 +28,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -48,6 +49,7 @@ public class MathDivMapTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

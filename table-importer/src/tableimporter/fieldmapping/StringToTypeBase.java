@@ -25,6 +25,7 @@ package tableimporter.fieldmapping;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -60,7 +61,11 @@ public abstract class StringToTypeBase extends TwoFieldsMapBase {
             parsedValue = convertToNeededType(parsedValue);
         }
         catch (Exception parseEx) {
-            // TODO: Log the exception here
+            Logger logger = Logger.getLogger("tableimporter.fieldmapping");
+            
+            logger.error(parseEx.getMessage());
+            logger.debug("Full stack trace of exception:", parseEx);
+
             throw new UnableToWriteFieldMapData(parseEx.getMessage());
         }
 

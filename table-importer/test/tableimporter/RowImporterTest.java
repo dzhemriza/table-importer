@@ -36,6 +36,7 @@ import tableimporter.source_table.ISourceTable;
 import tableimporter.fields.*;
 import tableimporter.collections.*;
 import tableimporter.fieldmapping.*;
+import org.apache.log4j.BasicConfigurator;
 
 class TestDestTable implements IDestTable {
     private Vector<IField> vFields = new Vector<IField>();
@@ -121,6 +122,7 @@ public class RowImporterTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

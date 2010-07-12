@@ -30,6 +30,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tableimporter.fields.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -50,6 +51,7 @@ public class FieldUtilsTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

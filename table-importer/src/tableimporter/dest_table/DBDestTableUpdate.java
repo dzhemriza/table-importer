@@ -29,6 +29,7 @@ import tableimporter.fields.IField;
 import tableimporter.collections.RowData;
 import tableimporter.utils.db.ISQLStatementBuilder;
 import tableimporter.dest_table.db_operations.DBTableUpdater;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -48,12 +49,17 @@ public class DBDestTableUpdate extends DBDestTableBase {
     }
 
     public void postRecord(RowData rowData) {
+        Logger logger = Logger.getLogger("tableimporter.dest_table");
+
         try {
-            rowUpdater.updateRow(fields, useKeyFieldsAsWhere, where, rowData);
-            // TODO: log updateCount
+            int updateCount = rowUpdater.updateRow(fields, useKeyFieldsAsWhere, where, rowData);
+            
+            logger.info("DBDestTableUpdate.postRecord: Insert Count = " + ((Integer) updateCount).toString());
         }
         catch (SQLException ex) {
-            // TODO: log the exception
+            logger.error(ex.getMessage());
+            logger.debug("Full stack trace of exception:", ex);
+
             ex.printStackTrace();
         }
     }

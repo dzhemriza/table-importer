@@ -25,6 +25,7 @@ package tableimporter.fieldmapping;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -49,7 +50,11 @@ public class StringCatMap extends TwoFieldsMapBase {
             destRowData.setFieldValue(dstField.getFieldName(), strDst + strSrc);
         }
         catch (Exception ex) {
-            // TODO: log the exception here
+            Logger logger = Logger.getLogger("tableimporter.fieldmapping");
+
+            logger.error(ex.getMessage());
+            logger.debug("Full stack trace of exception:", ex);
+            
             throw new UnableToWriteFieldMapData("Exception reading data from RowData: " + ex.getMessage());
         }
     }
