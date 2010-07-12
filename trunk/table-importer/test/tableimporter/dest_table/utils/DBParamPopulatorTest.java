@@ -40,6 +40,7 @@ import tableimporter.fields.IField;
 import tableimporter.fields.Field;
 import tableimporter.fields.FieldType;
 import tableimporter.utils.db.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -60,6 +61,7 @@ public class DBParamPopulatorTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

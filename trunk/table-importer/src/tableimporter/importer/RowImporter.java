@@ -29,6 +29,7 @@ import tableimporter.source_table.ISourceTable;
 import tableimporter.fieldmapping.IFieldMap;
 import tableimporter.collections.RowData;
 import tableimporter.fieldmapping.UnableToWriteFieldMapData;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -73,7 +74,10 @@ public class RowImporter implements IRowImporter {
                 try {
                     fieldMap.write(rowData, destRowData);
                 } catch (UnableToWriteFieldMapData unableToWriteFieldMapData) {
-                    // TODO: Log the exception here
+                    Logger logger = Logger.getLogger("tableimporter.importer");
+
+                    logger.error(unableToWriteFieldMapData.getMessage());
+                    logger.debug("Full stack trace of exception:", unableToWriteFieldMapData);
                 }
             }
 

@@ -31,6 +31,7 @@ import static org.junit.Assert.*;
 import tableimporter.collections.RowData;
 import tableimporter.fields.Field;
 import tableimporter.fields.FieldType;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -51,6 +52,7 @@ public class StringToIntMapTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

@@ -36,6 +36,7 @@ import tableimporter.utils.db.DBConnectionBuilder;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -56,6 +57,7 @@ public class DBResultSetSourceTableAndBuilderTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After

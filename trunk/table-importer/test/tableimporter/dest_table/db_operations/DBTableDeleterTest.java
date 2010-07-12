@@ -22,12 +22,10 @@
 
 package tableimporter.dest_table.db_operations;
 
-import java.net.MalformedURLException;
 import java.util.Vector;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,6 +35,7 @@ import static org.junit.Assert.*;
 import tableimporter.collections.RowData;
 import tableimporter.utils.db.*;
 import tableimporter.fields.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -57,6 +56,7 @@ public class DBTableDeleterTest {
 
     @Before
     public void setUp() {
+        BasicConfigurator.configure();
     }
 
     @After
