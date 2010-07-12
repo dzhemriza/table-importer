@@ -3,6 +3,20 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-07-12 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Issue 8: Add using of some kind of logger which logs exceptions and warnings
+  * Done:
+   * Continue working on initial design
+    * Finish Issue 8: Add using of some kind of logger which logs exceptions and warnings
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Start Issue 11: Design session about how XML configuration will look
+
 == 2010-07-08 ==
  * djemriza
   * Prev:
