@@ -53,8 +53,6 @@ public class DBDestTableInsert extends DBDestTableBase {
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
             logger.debug("Full stack trace of exception:", ex);
-
-            ex.printStackTrace();
         }
     }
 
