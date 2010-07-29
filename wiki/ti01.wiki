@@ -17,6 +17,20 @@
    * Continue working on initial design
     * Issue 12: Implement XML configuration class
 
+== 2010-07-27 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Issue 12: Implement XML configuration class
+  * Done:
+   * Continue working on initial design
+    * Continue Issue 12: Implement XML configuration class
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 12: Implement XML configuration class
+
 == 2010-07-23 ==
  * djemriza
   * Prev:
