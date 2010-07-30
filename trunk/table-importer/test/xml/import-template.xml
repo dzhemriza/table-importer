@@ -100,10 +100,10 @@
 		Defines destination table used fields
 		-->
 		<fields>
-			<field name="persons_id" type="FieldType.Integer" key_field="true"/>
-			<field name="persons_name" type="FieldType.String" key_field="false"/>
-			<field name="persons_age" type="FieldType.Integer" key_field="false"/>
-			<field name="persons_address" type="FieldType.String" key_field="false"/>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
 		</fields>
 		
 		<!--
@@ -134,10 +134,10 @@
 		Defines destination table used fields
 		-->
 		<fields>
-			<field name="persons_id" type="FieldType.Integer" key_field="true"/>
-			<field name="persons_name" type="FieldType.String" key_field="false"/>
-			<field name="persons_age" type="FieldType.Integer" key_field="false"/>
-			<field name="persons_address" type="FieldType.String" key_field="false"/>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
 		</fields>
 		
 		<!--
@@ -168,10 +168,10 @@
 		Defines destination table used fields
 		-->
 		<fields>
-			<field name="persons_id" type="FieldType.Integer" key_field="true"/>
-			<field name="persons_name" type="FieldType.String" key_field="false"/>
-			<field name="persons_age" type="FieldType.Integer" key_field="false"/>
-			<field name="persons_address" type="FieldType.String" key_field="false"/>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
 		</fields>
 	</dest_table>
 	
@@ -216,7 +216,7 @@
 		<!--
 		Field map try to convert a string value to date time value by a specific pattern
 		-->
-		<field_map class="StringToDateTimeMap" source_field="persons_name" dest_field="persons_date" date_format="some date format" field_type="FieldType.Date"/>
+		<field_map class="StringToDateTimeMap" source_field="persons_name" dest_field="persons_date" date_format="some date format" field_type="Date"/>
 
 		<!--
 		This field mapping is used only with destination integer fields it has a initial starting value and
