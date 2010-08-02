@@ -27,7 +27,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.util.Vector;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -84,7 +84,7 @@ public class DBTableInserterTest {
 
         DBTableInserter inserter = new DBTableInserter(conn, sqlStmBld, "persons2");
         
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));

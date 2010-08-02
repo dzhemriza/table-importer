@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.SQLException;
 import tableimporter.fields.IField;
@@ -38,7 +38,7 @@ import org.apache.log4j.Logger;
 public class DBDestTableInsert extends DBDestTableBase {
     protected DBTableInserter rowInserter = null;
 
-    public DBDestTableInsert(Connection dbConn, Vector<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder) {
+    public DBDestTableInsert(Connection dbConn, ArrayList<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder) {
         super(dbConn, fields, tableName, sqlStatementBuilder);
         rowInserter = new DBTableInserter(dbConn, sqlStatementBuilder, tableName);
     }

@@ -23,7 +23,7 @@
 package tableimporter.dest_table;
 
 import java.net.MalformedURLException;
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -91,7 +91,7 @@ public class DBDestTableInsertTest {
         int updateCount = st.executeUpdate("delete from persons2 where persons_id = 1;");
         System.out.println("testPostRecord - Update count " + ((Integer)updateCount).toString());
 
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));

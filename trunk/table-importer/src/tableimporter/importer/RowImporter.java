@@ -22,7 +22,7 @@
 
 package tableimporter.importer;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.Iterator;
 import tableimporter.dest_table.IDestTable;
 import tableimporter.source_table.ISourceTable;
@@ -47,7 +47,7 @@ public class RowImporter implements IRowImporter {
 //    because maybe tomorrow i will need it
 //
 //    private void copyDestFieldNames(IDestTable dstTable, RowData rowData) {
-//        Vector<IField> vFields = dstTable.getFields();
+//        ArrayList<IField> vFields = dstTable.getFields();
 //
 //        for (int i = 0; i < vFields.size(); ++i) {
 //            IField field = vFields.get(i);
@@ -61,7 +61,7 @@ public class RowImporter implements IRowImporter {
 //        }
 //    }
     
-    public void processImport(ISourceTable srcTable, IDestTable dstTable, Vector<IFieldMap> fieldMapping) {
+    public void processImport(ISourceTable srcTable, IDestTable dstTable, ArrayList<IFieldMap> fieldMapping) {
         Iterator<RowData> srcTableIter = srcTable.getRecords();
 
         while (srcTableIter.hasNext()) {

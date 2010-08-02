@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import tableimporter.fields.IField;
 import tableimporter.collections.RowData;
 
@@ -42,5 +42,5 @@ public interface IDestTable {
      * Returns a collection with description of all fields
      * @return
      */
-    public Vector<IField> getFields();
+    public ArrayList<IField> getFields();
 }

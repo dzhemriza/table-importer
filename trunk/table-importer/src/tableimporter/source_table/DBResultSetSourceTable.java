@@ -21,7 +21,7 @@
 
 package tableimporter.source_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.sql.ResultSet;
 import tableimporter.collections.RowData;
@@ -33,14 +33,14 @@ import tableimporter.fields.IField;
  */
 public class DBResultSetSourceTable implements ISourceTable {
     protected ResultSet resultSet = null;
-    protected Vector<IField> fields = null;
+    protected ArrayList<IField> fields = null;
 
     /**
      * Constructor of class DBResultSetSourceTable
      * @param resultSet
      * @param fields
      */
-    public DBResultSetSourceTable(ResultSet resultSet, Vector<IField> fields) {
+    public DBResultSetSourceTable(ResultSet resultSet, ArrayList<IField> fields) {
         this.resultSet = resultSet;
         this.fields = fields;
     }
@@ -51,7 +51,7 @@ public class DBResultSetSourceTable implements ISourceTable {
         return iter;
     }
 
-    public Vector<IField> getFields() {
+    public ArrayList<IField> getFields() {
         return fields;
     }
 

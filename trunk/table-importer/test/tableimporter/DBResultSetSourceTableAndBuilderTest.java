@@ -21,7 +21,7 @@
 
 package tableimporter;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.sql.Connection;
 import org.junit.After;
@@ -108,7 +108,7 @@ public class DBResultSetSourceTableAndBuilderTest {
         assertNotNull(dbSourceTable);
 
         System.out.println("Phase 3: Testing is fields are ok according to hard coded db");
-        Vector<IField> fields = dbSourceTable.getFields();
+        ArrayList<IField> fields = dbSourceTable.getFields();
         String[] fieldNames = {"persons_id", "persons_name", "persons_age", "persons_address"};
         FieldType[] fieldTypes = {FieldType.Integer, FieldType.String, FieldType.Integer, FieldType.String};
 

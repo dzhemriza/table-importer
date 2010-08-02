@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table.db_operations;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -43,7 +43,7 @@ public class DBTableDeleter extends DBTableOperationBase {
         super(dbConn, sqlStatementBuilder, tableName);
     }
 
-    public int deleteRow(Vector<IField> fields, boolean useKeyFieldsAsWhere, String where, RowData rowData) throws SQLException {
+    public int deleteRow(ArrayList<IField> fields, boolean useKeyFieldsAsWhere, String where, RowData rowData) throws SQLException {
         String sql = null;
 
         if (useKeyFieldsAsWhere) {

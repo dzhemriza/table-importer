@@ -22,7 +22,7 @@
 
 package tableimporter;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -63,7 +63,7 @@ public class FieldUtilsTest {
      */
     @Test
     public void testToNamesArray() {
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("A", FieldType.Integer, false));
         fields.add(new Field("B", FieldType.Integer, false));
         fields.add(new Field("C", FieldType.Integer, false));
@@ -77,7 +77,7 @@ public class FieldUtilsTest {
 
     @Test
     public void testKeyFieldToNamesArray() {
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("A", FieldType.Integer, true));
         fields.add(new Field("B", FieldType.Integer, false));
         fields.add(new Field("C", FieldType.Integer, false));
@@ -91,7 +91,7 @@ public class FieldUtilsTest {
 
     @Test
     public void testNonKeyFieldToNamesArray() {
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("A", FieldType.Integer, true));
         fields.add(new Field("B", FieldType.Integer, false));
         fields.add(new Field("C", FieldType.Integer, false));

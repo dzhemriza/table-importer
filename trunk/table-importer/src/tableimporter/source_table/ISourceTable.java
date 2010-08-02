@@ -23,7 +23,7 @@
 package tableimporter.source_table;
 
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
 import tableimporter.collections.RowData;
 import tableimporter.fields.IField;
 
@@ -43,5 +43,5 @@ public interface ISourceTable {
      * Returns a collection with description of all fields
      * @return
      */
-    public Vector<IField> getFields();
+    public ArrayList<IField> getFields();
 }

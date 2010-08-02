@@ -22,7 +22,7 @@
 
 package tableimporter;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -39,8 +39,8 @@ import tableimporter.fieldmapping.*;
 import org.apache.log4j.BasicConfigurator;
 
 class TestDestTable implements IDestTable {
-    private Vector<IField> vFields = new Vector<IField>();
-    private Vector<RowData> vPostedRecords = new Vector<RowData>();
+    private ArrayList<IField> vFields = new ArrayList<IField>();
+    private ArrayList<RowData> vPostedRecords = new ArrayList<RowData>();
 
     public TestDestTable() {
         vFields.add(new Field("A", FieldType.Integer, false));
@@ -61,7 +61,7 @@ class TestDestTable implements IDestTable {
         }
     }
 
-    public Vector<IField> getFields() {
+    public ArrayList<IField> getFields() {
         return vFields;
     }
 
@@ -71,8 +71,8 @@ class TestDestTable implements IDestTable {
 }
 
 class TestSourceTable implements ISourceTable {
-    private Vector<IField> vFields = new Vector<IField>();
-    private Vector<RowData> vRecords = new Vector<RowData>();
+    private ArrayList<IField> vFields = new ArrayList<IField>();
+    private ArrayList<RowData> vRecords = new ArrayList<RowData>();
 
     public TestSourceTable() {
         vFields.add(new Field("A", FieldType.Integer, false));
@@ -98,7 +98,7 @@ class TestSourceTable implements ISourceTable {
         return vRecords.iterator();
     }
 
-    public Vector<IField> getFields() {
+    public ArrayList<IField> getFields() {
         return vFields;
     }
 }
@@ -145,7 +145,7 @@ public class RowImporterTest {
         IField dstTblA = dstTable.getFields().get(0);
         IField dstTblB = dstTable.getFields().get(1);
 
-        Vector<IFieldMap> fieldMapping = new Vector<IFieldMap>();
+        ArrayList<IFieldMap> fieldMapping = new ArrayList<IFieldMap>();
         fieldMapping.add(new FieldToFieldMap(srcTblA, dstTblA));
         fieldMapping.add(new FieldToFieldMap(srcTblB, dstTblB));
 

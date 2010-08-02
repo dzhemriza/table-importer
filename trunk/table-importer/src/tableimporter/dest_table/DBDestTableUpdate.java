@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.SQLException;
 import tableimporter.fields.IField;
@@ -40,7 +40,7 @@ public class DBDestTableUpdate extends DBDestTableBase {
     protected String where = "";
     protected DBTableUpdater rowUpdater = null;
 
-    public DBDestTableUpdate(Connection dbConn, Vector<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder, boolean useKeyFieldsAsWhere, String where) {
+    public DBDestTableUpdate(Connection dbConn, ArrayList<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder, boolean useKeyFieldsAsWhere, String where) {
         super(dbConn, fields, tableName, sqlStatementBuilder);
         this.useKeyFieldsAsWhere = useKeyFieldsAsWhere;
         this.where = where;
