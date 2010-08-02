@@ -23,7 +23,7 @@
 package tableimporter.dest_table.db_operations;
 
 import java.net.MalformedURLException;
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -84,7 +84,7 @@ public class DBTableUpdaterTest {
 
         DBTableUpdater updater = new DBTableUpdater(conn, sqlStmBld, "persons2");
 
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));
@@ -136,7 +136,7 @@ public class DBTableUpdaterTest {
 
         DBTableUpdater updater = new DBTableUpdater(conn, sqlStmBld, "persons2");
 
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));
@@ -186,7 +186,7 @@ public class DBTableUpdaterTest {
 
         DBTableUpdater updater = new DBTableUpdater(conn, sqlStmBld, "persons2");
 
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));
@@ -238,7 +238,7 @@ public class DBTableUpdaterTest {
 
         DBTableUpdater updater = new DBTableUpdater(conn, sqlStmBld, "persons2");
 
-        Vector<IField> fields = new Vector<IField>();
+        ArrayList<IField> fields = new ArrayList<IField>();
         fields.add(new Field("persons_id", FieldType.Integer, true));
         fields.add(new Field("persons_name", FieldType.String, false));
         fields.add(new Field("persons_age", FieldType.Integer, false));

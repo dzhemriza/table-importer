@@ -24,7 +24,7 @@ package tableimporter.dest_table.utils;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Vector;
+import java.util.ArrayList;
 import tableimporter.collections.RowData;
 import tableimporter.fields.IField;
 
@@ -34,7 +34,7 @@ import tableimporter.fields.IField;
  */
 public class DBParamPopulator {
 
-    public static void populateParameters(Vector<IField> fields, PreparedStatement ps, RowData rd, ParametersPopulationOrder populationOrder) throws SQLException {
+    public static void populateParameters(ArrayList<IField> fields, PreparedStatement ps, RowData rd, ParametersPopulationOrder populationOrder) throws SQLException {
         if (ParametersPopulationOrder.FieldsOrder == populationOrder) {
             for (int i = 0; i < fields.size(); ++i) {
                 IField field = fields.get(i);

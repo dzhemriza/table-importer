@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table.db_operations;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -43,7 +43,7 @@ public class DBTableInserter extends DBTableOperationBase {
         super(dbConn, sqlStatementBuilder, tableName);
     }
 
-    public int insertRow(Vector<IField> fields, RowData rowData) throws SQLException {
+    public int insertRow(ArrayList<IField> fields, RowData rowData) throws SQLException {
         String[] fieldNames = FieldUtils.toNamesArray(fields);
         String sql = sqlStatementBuilder.buildParametricInsertStatement(tableName, fieldNames);
 

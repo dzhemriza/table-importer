@@ -21,7 +21,7 @@
 
 package tableimporter.source_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -38,7 +38,7 @@ public class DBResultSetSourceTableBuilder {
     private Connection dbConn = null;
     private String sqlSelect = "";
     private ResultSet resultSet = null;
-    private Vector<IField> fields = new Vector<IField>();
+    private ArrayList<IField> fields = new ArrayList<IField>();
     private DBResultSetSourceTable result = null;
 
     public DBResultSetSourceTableBuilder() {

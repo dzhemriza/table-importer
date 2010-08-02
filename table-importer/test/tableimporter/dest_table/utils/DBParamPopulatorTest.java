@@ -28,7 +28,7 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.Vector;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -68,8 +68,8 @@ public class DBParamPopulatorTest {
     public void tearDown() {
     }
 
-    private Vector<IField> createTestFields() {
-        Vector<IField> result = new Vector<IField>();
+    private ArrayList<IField> createTestFields() {
+        ArrayList<IField> result = new ArrayList<IField>();
 
         result.add(new Field("persons_name", FieldType.String, false));
         result.add(new Field("persons_id", FieldType.Integer, true));
@@ -92,7 +92,7 @@ public class DBParamPopulatorTest {
     public void testPopulateParametersFieldsOrder() throws ClassNotFoundException, SQLException, MalformedURLException, InstantiationException, IllegalAccessException {
         System.out.println("Warning: The test code is using hard coded paths to databases if you are running this test code on another machine please change the hard coded paths!");
 
-        Vector<IField> fields = createTestFields();
+        ArrayList<IField> fields = createTestFields();
         RowData rd = createRowData();
 
         String driverFileName = "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar";
@@ -128,7 +128,7 @@ public class DBParamPopulatorTest {
     public void testPopulateParametersFieldsKeyFieldsFirst() throws Exception {
         System.out.println("Warning: The test code is using hard coded paths to databases if you are running this test code on another machine please change the hard coded paths!");
 
-        Vector<IField> fields = createTestFields();
+        ArrayList<IField> fields = createTestFields();
         RowData rd = createRowData();
 
         String driverFileName = "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar";
@@ -164,7 +164,7 @@ public class DBParamPopulatorTest {
     public void testPopulateParametersFieldsKeyFieldsLast() throws Exception {
         System.out.println("Warning: The test code is using hard coded paths to databases if you are running this test code on another machine please change the hard coded paths!");
 
-        Vector<IField> fields = createTestFields();
+        ArrayList<IField> fields = createTestFields();
         RowData rd = createRowData();
 
         String driverFileName = "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar";
@@ -200,7 +200,7 @@ public class DBParamPopulatorTest {
     public void testPopulateParametersFieldsOnlyKeyFields() throws Exception {
         System.out.println("Warning: The test code is using hard coded paths to databases if you are running this test code on another machine please change the hard coded paths!");
 
-        Vector<IField> fields = createTestFields();
+        ArrayList<IField> fields = createTestFields();
         RowData rd = createRowData();
 
         String driverFileName = "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar";

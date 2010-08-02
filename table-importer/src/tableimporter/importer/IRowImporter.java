@@ -22,7 +22,7 @@
 
 package tableimporter.importer;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import tableimporter.dest_table.IDestTable;
 import tableimporter.source_table.ISourceTable;
 import tableimporter.fieldmapping.IFieldMap;
@@ -40,5 +40,5 @@ public interface IRowImporter {
      * @param dstTable
      * @param fieldMapping
      */
-    public void processImport(ISourceTable srcTable, IDestTable dstTable, Vector<IFieldMap> fieldMapping);
+    public void processImport(ISourceTable srcTable, IDestTable dstTable, ArrayList<IFieldMap> fieldMapping);
 }

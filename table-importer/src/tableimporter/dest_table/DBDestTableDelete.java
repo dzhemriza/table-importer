@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.SQLException;
 import tableimporter.fields.IField;
@@ -40,7 +40,7 @@ public class DBDestTableDelete extends DBDestTableBase {
     protected String sqlWhere = "";
     protected boolean useKeyFieldsAsWhere = false;
 
-    public DBDestTableDelete(Connection dbConn, Vector<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder, boolean useKeyFieldsAsWhere, String where) {
+    public DBDestTableDelete(Connection dbConn, ArrayList<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder, boolean useKeyFieldsAsWhere, String where) {
         super(dbConn, fields, tableName, sqlStatementBuilder);
 
         rowDeleter = new DBTableDeleter(dbConn, sqlStatementBuilder, tableName);

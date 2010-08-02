@@ -22,7 +22,7 @@
 
 package tableimporter.fields;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,7 +30,7 @@ import java.util.Vector;
  */
 public class FieldUtils {
 
-    public static String[] toNamesArray(Vector<IField> fields) {
+    public static String[] toNamesArray(ArrayList<IField> fields) {
         assert(0 < fields.size());
         String[] fieldNames = new String[fields.size()];
 
@@ -42,8 +42,8 @@ public class FieldUtils {
         return fieldNames;
     }
 
-    public static String[] keyFieldToNamesArray(Vector<IField> fields) {
-        Vector<String> keyFields = new Vector<String>();
+    public static String[] keyFieldToNamesArray(ArrayList<IField> fields) {
+        ArrayList<String> keyFields = new ArrayList<String>();
 
         for (int i = 0; i < fields.size(); ++i) {
             IField field = fields.get(i);
@@ -58,8 +58,8 @@ public class FieldUtils {
         return result;
     }
 
-    public static String[] nonKeyFieldToNamesArray(Vector<IField> fields) {
-        Vector<String> keyFields = new Vector<String>();
+    public static String[] nonKeyFieldToNamesArray(ArrayList<IField> fields) {
+        ArrayList<String> keyFields = new ArrayList<String>();
 
         for (int i = 0; i < fields.size(); ++i) {
             IField field = fields.get(i);

@@ -22,7 +22,7 @@
 
 package tableimporter.dest_table;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.sql.Connection;
 import tableimporter.fields.IField;
 import tableimporter.utils.db.ISQLStatementBuilder;
@@ -33,12 +33,12 @@ import tableimporter.utils.db.ISQLStatementBuilder;
  * @author djemriza
  */
 public abstract class DBDestTableBase implements IDestTable {
-    protected Vector<IField> fields = null;
+    protected ArrayList<IField> fields = null;
     protected Connection dbConn = null;
     protected String tableName = "";
     protected ISQLStatementBuilder sqlStatementBuilder = null;
 
-    public DBDestTableBase(Connection dbConn, Vector<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder) {
+    public DBDestTableBase(Connection dbConn, ArrayList<IField> fields, String tableName, ISQLStatementBuilder sqlStatementBuilder) {
         this.fields = fields;
         this.dbConn = dbConn;
         this.tableName = tableName;
@@ -49,7 +49,7 @@ public abstract class DBDestTableBase implements IDestTable {
         assert(null != sqlStatementBuilder);
     }
 
-    public Vector<IField> getFields() {
+    public ArrayList<IField> getFields() {
         return fields;
     }
 
