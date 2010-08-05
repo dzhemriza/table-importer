@@ -3,7 +3,7 @@
  * Sprint Goal:
   * Have a initial design of importer
 
-== 2010-08-02 ==
+== 2010-08-05 ==
  * djemriza
   * Prev:
    * Continue working on initial design
