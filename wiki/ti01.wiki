@@ -3,6 +3,20 @@
  * Sprint Goal:
   * Have a initial design of importer
 
+== 2010-08-26 ==
+ * djemriza
+  * Prev:
+   * Continue working on initial design
+    * Issue 14: Create class builders
+  * Done:
+   * Continue working on initial design
+    * Issue 14: Create class builders
+  * Obstacles:
+   * No
+  * Plan:
+   * Continue working on initial design
+    * Issue 14: Create class builders
+
 == 2010-08-05 ==
  * djemriza
   * Prev:
