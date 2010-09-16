@@ -35,7 +35,7 @@
 		
 		pass attribute contains password for logging
 		-->
-		<connection name="MySQL" class="com.mysql.jdbc.Driver" user="root" pass="root" jar="file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar" url="some url"/>
+		<connection name="MySQL" class="com.mysql.jdbc.Driver" user="root" pass="root" jar="file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar" url="jdbc:mysql://127.0.0.1:3306/test"/>
 	</db_connection>
 	
 	<!--
@@ -59,7 +59,7 @@
 	type attribute defines the type of destination table operation
 	allowed types are insert, update, delete, update_insert
 	-->
-	<dest_table type="update"> <!-- This is a example of updating destination table -->
+	<dest_table type="update"> <!-- This is a example of updating and if update fails inserting destination table -->
 		<!--
 		This node is a link node between db connection and source table
 		name attribute is link from db_connections list
@@ -82,14 +82,8 @@
 			<field name="persons_address" type="String" key_field="false"/>
 		</fields>
 		
-		<!--
-		Defines using of key fields in where clause of sql statement
-		-->
 		<use_key_fields_as_where>true</use_key_fields_as_where>
 		
-		<!--
-		Additional sql where statement
-		-->
 		<sql_where>1=1</sql_where>
 	</dest_table>
 	

@@ -35,7 +35,7 @@
 		
 		pass attribute contains password for logging
 		-->
-		<connection name="MySQL" class="com.mysql.jdbc.Driver" user="root" pass="root" jar="file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar"/>
+		<connection name="MySQL" class="com.mysql.jdbc.Driver" user="root" pass="root" jar="file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar" url="some url"/>
 	</db_connection>
 	
 	<!--
