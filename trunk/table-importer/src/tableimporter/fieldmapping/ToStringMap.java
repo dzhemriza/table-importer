@@ -25,12 +25,17 @@ package tableimporter.fieldmapping;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 /**
  *
  * @author djemriza
  */
 public class ToStringMap extends TwoFieldsMapBase {
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new ToStringMap(srcField, dstField);
+    }
 
     public ToStringMap(IField srcField, IField dstField) {
         super(srcField, dstField);

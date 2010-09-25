@@ -22,6 +22,7 @@
 
 package tableimporter.config;
 
+import tableimporter.fieldmapinfo.FieldMapInfo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.File;
@@ -330,8 +331,9 @@ public class ConfigXml {
                     String user = getNodeAttrValue(childItem, "user");
                     String pass = getNodeAttrValue(childItem, "pass");
                     String jar = getNodeAttrValue(childItem, "jar");
+                    String url = getNodeAttrValue(childItem, "url");
 
-                    ConnectionInfo conInfo = new ConnectionInfo(name, clazz, user, pass, jar);
+                    ConnectionInfo conInfo = new ConnectionInfo(name, clazz, user, pass, jar, url);
                     vConnectionInfo.add(conInfo);
                 }
             }

@@ -32,13 +32,15 @@ public class ConnectionInfo {
     private String user;
     private String pass;
     private String jarFile;
+    private String url;
 
-    public ConnectionInfo(String name, String className, String user, String pass, String jarFile) {
+    public ConnectionInfo(String name, String className, String user, String pass, String jarFile, String url) {
         this.name = name;
         this.className = className;
         this.user = user;
         this.pass = pass;
         this.jarFile = jarFile;
+        this.url = url;
     }
 
     public String getConnectionName() {
@@ -59,6 +61,10 @@ public class ConnectionInfo {
 
     public String getDriverJarFile() {
         return jarFile;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
 }

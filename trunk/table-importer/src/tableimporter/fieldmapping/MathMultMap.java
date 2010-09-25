@@ -23,12 +23,17 @@
 package tableimporter.fieldmapping;
 
 import tableimporter.fields.IField;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 /**
  *
  * @author djemriza
  */
 public class MathMultMap extends MathBaseMap {
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new MathMultMap(srcField, dstField);
+    }
 
     public MathMultMap(IField srcField, IField dstField) {
         super(srcField, dstField);

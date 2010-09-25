@@ -22,6 +22,7 @@
 
 package tableimporter.config;
 
+import tableimporter.fieldmapinfo.FieldMapInfo;
 import java.util.Iterator;
 import java.util.ArrayList;
 import org.junit.After;
@@ -76,6 +77,7 @@ public class ConfigXmlTest {
             assertEquals(conInfo.getPass(), "root");
             assertEquals(conInfo.getDriverClassName(), "com.mysql.jdbc.Driver");
             assertEquals(conInfo.getDriverJarFile(), "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar");
+            assertEquals(conInfo.getUrl(), "some url");
         }
         assertEquals(confXml.getSourceTableConnection(), "MySQL");
         assertEquals(confXml.getSourceTableSql(), "select * from persons;");
@@ -103,19 +105,19 @@ public class ConfigXmlTest {
         assertEquals(confXml.getDestTableUseKeyFieldsAsWhere(), false);
 
         ArrayList<FieldMapInfo> tstFieldMaps = new ArrayList<FieldMapInfo>();
-        tstFieldMaps.add(new FieldMapInfo("FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
         Iterator<FieldMapInfo> tstFldMapInfoIter = tstFieldMaps.iterator();
         Iterator<FieldMapInfo> fldMapInfoIter = confXml.getFieldMapping();
         while (fldMapInfoIter.hasNext()) {
@@ -149,6 +151,7 @@ public class ConfigXmlTest {
             assertEquals(conInfo.getPass(), "root");
             assertEquals(conInfo.getDriverClassName(), "com.mysql.jdbc.Driver");
             assertEquals(conInfo.getDriverJarFile(), "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar");
+            assertEquals(conInfo.getUrl(), "some url");
         }
         assertEquals(confXml.getSourceTableConnection(), "MySQL");
         assertEquals(confXml.getSourceTableSql(), "select * from persons;");
@@ -176,19 +179,19 @@ public class ConfigXmlTest {
         assertEquals(confXml.getDestTableUseKeyFieldsAsWhere(), true);
 
         ArrayList<FieldMapInfo> tstFieldMaps = new ArrayList<FieldMapInfo>();
-        tstFieldMaps.add(new FieldMapInfo("FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
         Iterator<FieldMapInfo> tstFldMapInfoIter = tstFieldMaps.iterator();
         Iterator<FieldMapInfo> fldMapInfoIter = confXml.getFieldMapping();
         while (fldMapInfoIter.hasNext()) {
@@ -222,6 +225,7 @@ public class ConfigXmlTest {
             assertEquals(conInfo.getPass(), "root");
             assertEquals(conInfo.getDriverClassName(), "com.mysql.jdbc.Driver");
             assertEquals(conInfo.getDriverJarFile(), "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar");
+            assertEquals(conInfo.getUrl(), "some url");
         }
         assertEquals(confXml.getSourceTableConnection(), "MySQL");
         assertEquals(confXml.getSourceTableSql(), "select * from persons;");
@@ -249,19 +253,19 @@ public class ConfigXmlTest {
         assertEquals(confXml.getDestTableUseKeyFieldsAsWhere(), true);
 
         ArrayList<FieldMapInfo> tstFieldMaps = new ArrayList<FieldMapInfo>();
-        tstFieldMaps.add(new FieldMapInfo("FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
         Iterator<FieldMapInfo> tstFldMapInfoIter = tstFieldMaps.iterator();
         Iterator<FieldMapInfo> fldMapInfoIter = confXml.getFieldMapping();
         while (fldMapInfoIter.hasNext()) {
@@ -295,6 +299,7 @@ public class ConfigXmlTest {
             assertEquals(conInfo.getPass(), "root");
             assertEquals(conInfo.getDriverClassName(), "com.mysql.jdbc.Driver");
             assertEquals(conInfo.getDriverJarFile(), "file:/C:/temp/unit_tests/mysql-connector-java-5.1.10-bin.jar");
+            assertEquals(conInfo.getUrl(), "some url");
         }
         assertEquals(confXml.getSourceTableConnection(), "MySQL");
         assertEquals(confXml.getSourceTableSql(), "select * from persons;");
@@ -322,19 +327,19 @@ public class ConfigXmlTest {
         assertEquals(confXml.getDestTableUseKeyFieldsAsWhere(), false);
 
         ArrayList<FieldMapInfo> tstFieldMaps = new ArrayList<FieldMapInfo>();
-        tstFieldMaps.add(new FieldMapInfo("FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
-        tstFieldMaps.add(new FieldMapInfo("StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
-        tstFieldMaps.add(new FieldMapInfo("ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.FieldToFieldMap", "persons_id", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ToStringMap", "persons_id", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToIntMap", "persons_name", "persons_id", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDoubleMap", "persons_name", "persons_double", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToFloatMap", "persons_name", "persons_float", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringToDateTimeMap", "persons_name", "persons_date", "some date format", FieldType.Date, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.AutoNumberMap", "", "persons_id", "", FieldType.Other, 100, 1, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.StringCatMap", "persons_name", "persons_name", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathPlusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMinusMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathMultMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.MathDivMap", "src_numeric_field", "dst_numeric_field", "", FieldType.Other, 0, 0, ""));
+        tstFieldMaps.add(new FieldMapInfo("tableimporter.fieldmapping.ConstDataMap", "", "dest_field", "", FieldType.Other, 0, 0, "1232"));
         Iterator<FieldMapInfo> tstFldMapInfoIter = tstFieldMaps.iterator();
         Iterator<FieldMapInfo> fldMapInfoIter = confXml.getFieldMapping();
         while (fldMapInfoIter.hasNext()) {
