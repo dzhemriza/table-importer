@@ -25,6 +25,7 @@ package tableimporter.fieldmapping;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 import org.apache.log4j.Logger;
 
 /**
@@ -32,6 +33,10 @@ import org.apache.log4j.Logger;
  * @author djemriza
  */
 public class StringCatMap extends TwoFieldsMapBase {
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new StringCatMap(srcField, dstField);
+    }
 
     public StringCatMap(IField srcField, IField dstField) {
         super(srcField, dstField);

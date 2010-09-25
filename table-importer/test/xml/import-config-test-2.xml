@@ -108,69 +108,69 @@
 		<!--
 		Defines field to field mapping the source field and dest field should be from same type
 		-->
-		<field_map class="FieldToFieldMap" source_field="persons_id" dest_field="persons_id"/>
+		<field_map class="tableimporter.fieldmapping.FieldToFieldMap" source_field="persons_id" dest_field="persons_id"/>
 
 		<!--
 		Defines field mapping from one any kind of field to some string field (field mapping is using
 		toString java method)
 		-->
-		<field_map class="ToStringMap" source_field="persons_id" dest_field="persons_name"/>
+		<field_map class="tableimporter.fieldmapping.ToStringMap" source_field="persons_id" dest_field="persons_name"/>
 
 		<!--
 		Field map try to convert a string value to integer value
 		-->
-		<field_map class="StringToIntMap" source_field="persons_name" dest_field="persons_id"/>
+		<field_map class="tableimporter.fieldmapping.StringToIntMap" source_field="persons_name" dest_field="persons_id"/>
 
 		<!--
 		Field map try to convert a string value to double value
 		-->
-		<field_map class="StringToDoubleMap" source_field="persons_name" dest_field="persons_double"/>
+		<field_map class="tableimporter.fieldmapping.StringToDoubleMap" source_field="persons_name" dest_field="persons_double"/>
 
 		<!--
 		Field map try to convert a string value to float value
 		-->
-		<field_map class="StringToFloatMap" source_field="persons_name" dest_field="persons_float"/>
+		<field_map class="tableimporter.fieldmapping.StringToFloatMap" source_field="persons_name" dest_field="persons_float"/>
 
 		<!--
 		Field map try to convert a string value to date time value by a specific pattern
 		-->
-		<field_map class="StringToDateTimeMap" source_field="persons_name" dest_field="persons_date" date_format="some date format" field_type="Date"/>
+		<field_map class="tableimporter.fieldmapping.StringToDateTimeMap" source_field="persons_name" dest_field="persons_date" date_format="some date format" field_type="Date"/>
 
 		<!--
 		This field mapping is used only with destination integer fields it has a initial starting value and
 		incrementing value
 		-->
-		<field_map class="AutoNumberMap" dest_field="persons_id" initial="100" increment="1"/>
+		<field_map class="tableimporter.fieldmapping.AutoNumberMap" dest_field="persons_id" initial="100" increment="1"/>
 
 		<!--
 		Field map uses destination and source fields the value of source field is appended to
 		destination field
 		-->
-		<field_map class="StringCatMap" source_field="persons_name" dest_field="persons_name"/>
+		<field_map class="tableimporter.fieldmapping.StringCatMap" source_field="persons_name" dest_field="persons_name"/>
 
 		<!--
 		Field map executes math operation src_fld + dst_field and the result is copied into dest_field
 		-->
-		<field_map class="MathPlusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+		<field_map class="tableimporter.fieldmapping.MathPlusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
 
 		<!--
 		Field map executes math operation src_fld - dst_field and the result is copied into dest_field
 		-->
-		<field_map class="MathMinusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+		<field_map class="tableimporter.fieldmapping.MathMinusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
 
 		<!--
 		Field map executes math operation src_fld * dst_field and the result is copied into dest_field
 		-->
-		<field_map class="MathMultMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+		<field_map class="tableimporter.fieldmapping.MathMultMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
 
 		<!--
 		Field map executes math operation src_fld / dst_field and the result is copied into dest_field
 		-->
-		<field_map class="MathDivMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+		<field_map class="tableimporter.fieldmapping.MathDivMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
 
 		<!--
 		Field map try to convert string value defined in value attribute to the type of destination field
 		-->
-		<field_map class="ConstDataMap" dest_field="dest_field" value="1232"/>
+		<field_map class="tableimporter.fieldmapping.ConstDataMap" dest_field="dest_field" value="1232"/>
 	</field_mapping>
 </import>

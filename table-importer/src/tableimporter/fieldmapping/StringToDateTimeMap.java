@@ -26,6 +26,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 /**
  *
@@ -33,6 +34,10 @@ import tableimporter.fields.FieldType;
  */
 public class StringToDateTimeMap extends StringToTypeBase {
     protected String strDateFormat = "";
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) throws Exception {
+        return new StringToDateTimeMap(srcField, dstField, info.getDateFormat(), info.getFieldType());
+    }
 
     public StringToDateTimeMap(IField srcField, IField dstField, String strDateFormat, FieldType dateType) throws ExpectDateTimeType {
         super(srcField, dstField, dateType);

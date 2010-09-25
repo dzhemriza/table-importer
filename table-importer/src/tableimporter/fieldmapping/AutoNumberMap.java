@@ -25,6 +25,7 @@ package tableimporter.fieldmapping;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 
 /**
@@ -35,6 +36,10 @@ public class AutoNumberMap implements IFieldMap {
     protected IField dstField = null;
     protected int nextValue = 0;
     protected int incValue = 0;
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new AutoNumberMap(dstField, info.getInitialValue(), info.getIncValue());
+    }
 
     public AutoNumberMap(IField dstField, int initialValue, int incValue) {
         this.dstField = dstField;

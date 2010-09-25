@@ -27,6 +27,7 @@ import tableimporter.fields.IField;
 import tableimporter.fields.Field;
 import tableimporter.fields.FieldType;
 import tableimporter.collections.RowData;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 /**
  *
@@ -36,6 +37,10 @@ public class ConstDataMap implements IFieldMap {
     private IField dstField;
     private TreeMap<FieldType, IFieldMap> mapConversions;
     private RowData privateRowData;
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new ConstDataMap(dstField, info.getConstValue());
+    }
 
     public ConstDataMap(IField dstField, String constValue) {
         this.dstField = dstField;

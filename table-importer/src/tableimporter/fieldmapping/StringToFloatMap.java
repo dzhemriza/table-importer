@@ -24,12 +24,17 @@ package tableimporter.fieldmapping;
 
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
+import tableimporter.fieldmapinfo.FieldMapInfo;
 
 /**
  *
  * @author djemriza
  */
 public class StringToFloatMap extends StringToTypeBase {
+
+    public static IFieldMap createFromData(FieldMapInfo info, IField srcField, IField dstField) {
+        return new StringToFloatMap(srcField, dstField);
+    }
 
     public StringToFloatMap(IField srcField, IField dstField) {
         super(srcField, dstField, FieldType.Float);
