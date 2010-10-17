@@ -24,6 +24,7 @@ package tableimporter.fieldmapping;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import tableimporter.fields.IField;
 import tableimporter.fields.FieldType;
 import tableimporter.fieldmapinfo.FieldMapInfo;
@@ -50,7 +51,8 @@ public class StringToDateTimeMap extends StringToTypeBase {
 
     protected Object parseTypeFromString(String srcFieldValue) throws Exception {
         DateFormat dateFormatter = new SimpleDateFormat(strDateFormat);
-        return dateFormatter.parse(srcFieldValue);
+        Date dt = dateFormatter.parse(srcFieldValue);
+        return new java.sql.Date(dt.getTime());
     }
 
     // This code is feezed for the moment maybe in feature will be changed
