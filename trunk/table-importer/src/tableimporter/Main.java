@@ -78,12 +78,14 @@ public class Main {
             SourceTableBuilder sourceTableBuilder = new SourceTableBuilder();
             sourceTableBuilder.setConfigXml(conf);
             sourceTableBuilder.setConnectionPool(connPool);
+            sourceTableBuilder.buildSourceTable();
             ISourceTable srcTable = sourceTableBuilder.getSourceTable();
 
             // We need to create a destination table
             DestTableBuilder destTableBuilder = new DestTableBuilder();
             destTableBuilder.setConfigXml(conf);
             destTableBuilder.setConnectionPool(connPool);
+            destTableBuilder.buildDestinationTable();
             IDestTable destTable = destTableBuilder.getDestinationTable();
 
             // Creation of field mapping array
@@ -91,6 +93,7 @@ public class Main {
             fieldMappingsBuilder.setConfigXml(conf);
             fieldMappingsBuilder.setSourceTable(srcTable);
             fieldMappingsBuilder.setDestTable(destTable);
+            fieldMappingsBuilder.buildFieldMappings();
             ArrayList<IFieldMap> fieldMappings = fieldMappingsBuilder.getFieldMappings();
 
             // Creation of row importer
@@ -118,15 +121,26 @@ public class Main {
         for (int i = 0; i < args.length; ++i) {
             System.out.println("Start processing '" + args[i] + "' configuration...");
 
-            try {
-                ConfigXml conf = new ConfigXml();
-                conf.loadXml(args[i]);
+            boolean success = true;
+            ConfigXml conf = null;
 
-                initLog4j(conf.getLog4jConfigFile());
-                startImporting(conf);
+            try {
+                conf = new ConfigXml();
+                conf.loadXml(args[i]);
             }
             catch (Exception e) {
                 System.out.println("Exception while loading configarion: " + e.getMessage());
+                success = false;
+            }
+
+            if (success) {
+            	try {
+			        initLog4j(conf.getLog4jConfigFile());
+			        startImporting(conf);
+            	}
+            	catch (Exception e) {
+                    System.out.println("Exception while importing: " + e.getMessage());
+            	}
             }
         }
     }
