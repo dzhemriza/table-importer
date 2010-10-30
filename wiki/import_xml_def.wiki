@@ -1,0 +1,267 @@
+#summary One-sentence summary of this page.
+
+= Import XML definition =
+
+Import XML is used to define import settings that needed by application on order to move tabled data through tables.
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Root node should be always import -->
+<import>
+	<!-- Just for keeping track of changes -->
+	<version major="1" minor="0"/>
+
+	<!--
+	This node contains information about the file name which contains a log4j properties. 
+	Log4j file contains all configurations of the logger. The node is always empty and
+	has only one attribute called file which contains the path and file name to the
+	log4j configuration! In case when this node is not defined in configuration basic
+	configuration of log4j is used.
+	-->
+	<log4j_properties file="log4j.properties"/>
+	
+	<!--
+	Node contains information about used connections in importing process
+	-->
+	<db_connection>
+		<!--
+		There could be many connections not only one or two but for the current planed release
+		it sould be enought to have only one or two connections!
+		
+		name, class, user and pass attributes are mandatory jar attribute is optional
+		
+		name attribute should be unique based on a list of connections because this is
+		the way that we map current connection with destination or source table
+		
+		class attribute contains class name to jdbc driver
+		
+		jar attribute contains a path to a specific db driver
+		
+		user attribute contains user name for loggin into db
+		
+		pass attribute contains password for logging
+		-->
+		<connection name="MySQL" class="com.mysql.jdbc.Driver" user="root" pass="root" jar="file:/C:/temp/mysql-connector-java-5.1.10-bin.jar" url="some url"/>
+	</db_connection>
+	
+	<!--
+	Node contains definitions of source table
+	-->
+	<source_table>
+		<!--
+		This node is a link node between db connection and source table
+		name attribute is link from db_connections list
+		-->
+		<connection name="MySQL"/>
+		
+		<!--
+		Node contains sql code for fetching data from db
+		-->
+		<sql>select * from persons;</sql>
+	</source_table>
+	
+	<!--
+	Node contains definitions of destination table
+	type attribute defines the type of destination table operation
+	allowed types are insert, update, delete, update_insert
+	-->
+	<dest_table type="insert"> <!-- This is a example of inserting destination table -->
+		<!--
+		This node is a link node between db connection and source table
+		name attribute is link from db_connections list
+		-->
+		<connection name="MySQL"/>
+		
+		<!--
+		Defined destination table no need to write a sql code its just enoguht to
+		have a table name against the connection
+		-->
+		<table name="persons2"/>
+		
+		<!--
+		Defines destination table used fields
+		-->
+		<fields>
+			<field name="persons_id" type="FieldType.Integer" key_field="true"/>
+			<field name="persons_name" type="FieldType.String" key_field="false"/>
+			<field name="persons_age" type="FieldType.Integer" key_field="false"/>
+			<field name="persons_address" type="FieldType.String" key_field="false"/>
+		</fields>
+	</dest_table>
+	
+	<dest_table type="delete"> <!-- This is a example of deleting destination table -->
+		<!--
+		This node is a link node between db connection and source table
+		name attribute is link from db_connections list
+		-->
+		<connection name="MySQL"/>
+		
+		<!--
+		Defined destination table no need to write a sql code its just enoguht to
+		have a table name against the connection
+		-->
+		<table name="persons2"/>
+		
+		<!--
+		Defines destination table used fields
+		-->
+		<fields>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
+		</fields>
+		
+		<!--
+		Defines using of key fields in where clause of sql statement
+		-->
+		<use_key_fields_as_where>true</use_key_fields_as_where>
+		
+		<!--
+		Additional sql where statement
+		-->
+		<sql_where>1=1</sql_where>
+	</dest_table>
+	
+	<dest_table type="update"> <!-- This is a example of updating destination table -->
+		<!--
+		This node is a link node between db connection and source table
+		name attribute is link from db_connections list
+		-->
+		<connection name="MySQL"/>
+		
+		<!--
+		Defined destination table no need to write a sql code its just enoguht to
+		have a table name against the connection
+		-->
+		<table name="persons2"/>
+		
+		<!--
+		Defines destination table used fields
+		-->
+		<fields>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
+		</fields>
+		
+		<!--
+		Defines using of key fields in where clause of sql statement
+		-->
+		<use_key_fields_as_where>true</use_key_fields_as_where>
+		
+		<!--
+		Additional sql where statement
+		-->
+		<sql_where>1=1</sql_where>
+	</dest_table>
+	
+	<dest_table type="update_insert"> <!-- This is a example of updating and if update fails inserting destination table -->
+		<!--
+		This node is a link node between db connection and source table
+		name attribute is link from db_connections list
+		-->
+		<connection name="MySQL"/>
+		
+		<!--
+		Defined destination table no need to write a sql code its just enoguht to
+		have a table name against the connection
+		-->
+		<table name="persons2"/>
+		
+		<!--
+		Defines destination table used fields
+		-->
+		<fields>
+			<field name="persons_id" type="Integer" key_field="true"/>
+			<field name="persons_name" type="String" key_field="false"/>
+			<field name="persons_age" type="Integer" key_field="false"/>
+			<field name="persons_address" type="String" key_field="false"/>
+		</fields>
+	</dest_table>
+	
+	<!--
+	IMPORTANT: For destination table types update and delete on in this case
+	you can use use_key_fields_as_where and sql_where nodes for other types
+	insert and update_insert are not used even if you have in your xml configuration
+	these nodes they will not be taken into accound
+	-->
+	
+	<!--
+	Defines field mappings used for importing process if there are not defined
+	importer raises a error and stops imporing process
+	-->
+	<field_mapping>
+		<!--
+		Defines field to field mapping the source field and dest field should be from same type
+		-->
+		<field_map class="tableimporter.fieldmapping.FieldToFieldMap" source_field="persons_id" dest_field="persons_id"/>
+
+		<!--
+		Defines field mapping from one any kind of field to some string field (field mapping is using
+		toString java method)
+		-->
+		<field_map class="tableimporter.fieldmapping.ToStringMap" source_field="persons_id" dest_field="persons_name"/>
+
+		<!--
+		Field map try to convert a string value to integer value
+		-->
+		<field_map class="tableimporter.fieldmapping.StringToIntMap" source_field="persons_name" dest_field="persons_id"/>
+
+		<!--
+		Field map try to convert a string value to double value
+		-->
+		<field_map class="tableimporter.fieldmapping.StringToDoubleMap" source_field="persons_name" dest_field="persons_double"/>
+
+		<!--
+		Field map try to convert a string value to float value
+		-->
+		<field_map class="tableimporter.fieldmapping.StringToFloatMap" source_field="persons_name" dest_field="persons_float"/>
+
+		<!--
+		Field map try to convert a string value to date time value by a specific pattern
+		-->
+		<field_map class="tableimporter.fieldmapping.StringToDateTimeMap" source_field="persons_name" dest_field="persons_date" date_format="some date format" field_type="Date"/>
+
+		<!--
+		This field mapping is used only with destination integer fields it has a initial starting value and
+		incrementing value
+		-->
+		<field_map class="tableimporter.fieldmapping.AutoNumberMap" dest_field="persons_id" initial="100" increment="1"/>
+
+		<!--
+		Field map uses destination and source fields the value of source field is appended to
+		destination field
+		-->
+		<field_map class="tableimporter.fieldmapping.StringCatMap" source_field="persons_name" dest_field="persons_name"/>
+
+		<!--
+		Field map executes math operation src_fld + dst_field and the result is copied into dest_field
+		-->
+		<field_map class="tableimporter.fieldmapping.MathPlusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+
+		<!--
+		Field map executes math operation src_fld - dst_field and the result is copied into dest_field
+		-->
+		<field_map class="tableimporter.fieldmapping.MathMinusMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+
+		<!--
+		Field map executes math operation src_fld * dst_field and the result is copied into dest_field
+		-->
+		<field_map class="tableimporter.fieldmapping.MathMultMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+
+		<!--
+		Field map executes math operation src_fld / dst_field and the result is copied into dest_field
+		-->
+		<field_map class="tableimporter.fieldmapping.MathDivMap" source_field="src_numeric_field" dest_field="dst_numeric_field"/>
+
+		<!--
+		Field map try to convert string value defined in value attribute to the type of destination field
+		-->
+		<field_map class="tableimporter.fieldmapping.ConstDataMap" dest_field="dest_field" value="1232"/>
+	</field_mapping>
+</import>
+
+}}}
