@@ -14,10 +14,9 @@ Add your content here.  Format your content with:
 
 
 == Detail 1 ==
-
-* a
-
-* a
+  * a
+  * a
+  * a
 
 == Detail 2 ==
 
